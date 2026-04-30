@@ -41,18 +41,19 @@
   function tickerHTML(dark) {
     var bg = dark ? "var(--navy)" : "var(--ink)";
     var matches = D.schedule.slice(0, 5);
+    var separator = '<div aria-hidden="true" style="flex:0 0 1px;align-self:stretch;background:rgba(255,255,255,0.28);"></div>';
     var cells = matches.map(function (m, i) {
       var time = m.day.split(" · ")[1] || "7:30 PM";
-      var border = i < matches.length - 1 ? "1px solid rgba(255,255,255,0.22)" : "none";
       var oufc = '<span style="color:var(--blue-light);">OUFC</span>';
       var opp = '<span style="opacity:0.7;">' + escape(m.abbr) + '</span>';
       var matchup = m.home ? (oufc + '<span style="color:rgba(255,255,255,0.35);font-size:10px;">vs</span>' + opp)
                            : (opp + '<span style="color:rgba(255,255,255,0.35);font-size:10px;">vs</span>' + oufc);
-      return '<div style="flex:1;display:flex;align-items:center;gap:12px;padding:0 18px;border-right:' + border + ';min-width:200px;white-space:nowrap;">' +
+      var cell = '<div style="flex:1 0 200px;display:flex;align-items:center;gap:12px;padding:0 18px;white-space:nowrap;">' +
         '<div class="font-mono" style="font-size:11px;color:rgba(255,255,255,0.5);white-space:nowrap;">' + escape(m.date) + '</div>' +
         '<div class="font-display" style="font-weight:700;font-size:13px;letter-spacing:0.04em;display:flex;align-items:center;gap:6px;white-space:nowrap;">' + matchup + '</div>' +
         '<div class="font-mono" style="font-size:11px;color:rgba(255,255,255,0.5);margin-left:auto;white-space:nowrap;">' + escape(time) + '</div>' +
       '</div>';
+      return i === 0 ? cell : separator + cell;
     }).join("");
 
     return '<div style="background:' + bg + ';color:#fff;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);">' +
