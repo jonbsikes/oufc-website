@@ -57,17 +57,17 @@
         <div>
           <div class="font-mono" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue-light);margin-bottom:8px;display:flex;align-items:center;gap:8px;">
             <span style="width:6px;height:6px;background:var(--blue-light);border-radius:50%;"></span>
-            Next Match · SUN 5/17/26
+            <span>Next Match · <span id="next-day-date">--</span></span>
           </div>
-          <div class="font-display" style="font-size:32px;font-weight:800;line-height:1;">OUFC vs DALLAS DRAGONS FC</div>
-          <div class="font-mono" style="font-size:11px;color:rgba(255,255,255,0.65);margin-top:6px;">6:00 PM CT · Chad Richison Stadium</div>
+          <div id="next-matchup" class="font-display" style="font-size:32px;font-weight:800;line-height:1;">--</div>
+          <div id="next-meta" class="font-mono" style="font-size:11px;color:rgba(255,255,255,0.65);margin-top:6px;">--</div>
         </div>
         <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:24px;">
           <div class="font-mono" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;">Kickoff in</div>
           <div style="display:flex;gap:14px;align-items:baseline;">
-            <div><span class="font-display" style="font-size:36px;font-weight:900;line-height:1;">12</span><span class="font-mono" style="font-size:9px;letter-spacing:0.18em;color:rgba(255,255,255,0.5);margin-left:4px;">DAYS</span></div>
-            <div><span class="font-display" style="font-size:36px;font-weight:900;line-height:1;">04</span><span class="font-mono" style="font-size:9px;letter-spacing:0.18em;color:rgba(255,255,255,0.5);margin-left:4px;">HRS</span></div>
-            <div><span class="font-display" style="font-size:36px;font-weight:900;line-height:1;">27</span><span class="font-mono" style="font-size:9px;letter-spacing:0.18em;color:rgba(255,255,255,0.5);margin-left:4px;">MIN</span></div>
+            <div><span id="cd-days" class="font-display" style="font-size:36px;font-weight:900;line-height:1;">--</span><span class="font-mono" style="font-size:9px;letter-spacing:0.18em;color:rgba(255,255,255,0.5);margin-left:4px;">DAYS</span></div>
+            <div><span id="cd-hrs" class="font-display" style="font-size:36px;font-weight:900;line-height:1;">--</span><span class="font-mono" style="font-size:9px;letter-spacing:0.18em;color:rgba(255,255,255,0.5);margin-left:4px;">HRS</span></div>
+            <div><span id="cd-min" class="font-display" style="font-size:36px;font-weight:900;line-height:1;">--</span><span class="font-mono" style="font-size:9px;letter-spacing:0.18em;color:rgba(255,255,255,0.5);margin-left:4px;">MIN</span></div>
           </div>
         </div>
         <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:24px;">
@@ -280,6 +280,53 @@
 
 <script src="js/data.js"></script>
 <script src="js/site.js"></script>
+<script>
+  // Live next-match countdown. Picks the next match where kickoff > now.
+  // Auto-rolls to the next fixture once kickoff has passed. Updates every 30s.
+  (function () {
+    var D = window.OUFC_DATA;
+    function pad(n) { return String(n).padStart(2, "0"); }
+    function $(id) { return document.getElementById(id); }
+
+    function tick() {
+      var now = Date.now();
+      var next = D.schedule.find(function (m) { return Date.parse(m.kickoff) > now; });
+
+      if (!next) {
+        $("next-day-date").textContent = "Season Complete";
+        $("next-matchup").textContent  = "Thanks for the season";
+        $("next-meta").textContent     = "See you next season";
+        $("cd-days").textContent = "00";
+        $("cd-hrs").textContent  = "00";
+        $("cd-min").textContent  = "00";
+        return;
+      }
+
+      var diff = Date.parse(next.kickoff) - now;
+      var days = Math.floor(diff / 86400000);
+      var hrs  = Math.floor((diff % 86400000) / 3600000);
+      var mins = Math.floor((diff % 3600000) / 60000);
+
+      $("cd-days").textContent = pad(days);
+      $("cd-hrs").textContent  = pad(hrs);
+      $("cd-min").textContent  = pad(mins);
+
+      var dayOfWeek = (next.day.split(" · ")[0] || "").trim();
+      var time      = (next.day.split(" · ")[1] || "").trim();
+      var matchup = next.home
+        ? "OUFC vs " + next.opp.toUpperCase()
+        : next.opp.toUpperCase() + " vs OUFC";
+      var venueShort = next.venue.split(" · ")[0];
+
+      $("next-day-date").textContent = dayOfWeek + " " + next.date;
+      $("next-matchup").textContent  = matchup;
+      $("next-meta").textContent     = time + " CT · " + venueShort;
+    }
+
+    tick();
+    setInterval(tick, 30000);
+  })();
+</script>
 <script>
   // Render the partner tier wall on home from data. Skips empty tiers.
   (function () {
