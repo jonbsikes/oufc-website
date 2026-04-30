@@ -43,7 +43,7 @@
     var matches = D.schedule.slice(0, 5);
     var cells = matches.map(function (m, i) {
       var time = m.day.split(" · ")[1] || "7:30 PM";
-      var border = i < matches.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none";
+      var border = i < matches.length - 1 ? "1px solid rgba(255,255,255,0.22)" : "none";
       var oufc = '<span style="color:var(--blue-light);">OUFC</span>';
       var opp = '<span style="opacity:0.7;">' + escape(m.abbr) + '</span>';
       var matchup = m.home ? (oufc + '<span style="color:rgba(255,255,255,0.35);font-size:10px;">vs</span>' + opp)
