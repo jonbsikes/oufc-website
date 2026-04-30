@@ -177,6 +177,18 @@ a { color: inherit; }
   max-height: 70%;
   object-fit: contain;
 }
+.partner-marquee.is-dark {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.08);
+}
+.partner-marquee.is-dark .partner-marquee-item {
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.78);
+}
+.partner-marquee.is-dark .partner-marquee-item img {
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
 @keyframes partner-marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
