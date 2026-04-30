@@ -21,14 +21,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,75..125,400..900;1,75..125,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles/oufc.css" />
 <style>
-  /* Roster pitch view */
+  /* Roster pitch view — 3D perspective */
   .pitch-section {
-    background: var(--ink);
+    /* Stadium-feel backdrop: darker outer + subtle bluish glow toward center */
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(32, 126, 213, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(0,0,0,0.5) 0%, transparent 60%),
+      linear-gradient(180deg, #050a14 0%, var(--ink) 100%);
     color: #fff;
-    padding: 32px 48px 64px;
+    padding: 32px 48px 80px;
   }
   .pitch-wrap {
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
   }
   .pitch-header {
@@ -54,15 +58,27 @@
     text-transform: uppercase;
     color: rgba(255,255,255,0.55);
   }
+
+  /* Stage provides the perspective; pitch tilts back inside it. */
+  .pitch-stage {
+    perspective: 1100px;
+    perspective-origin: 50% 0%;
+    padding-bottom: 48px;
+  }
   .pitch {
     position: relative;
     width: 100%;
-    aspect-ratio: 7 / 10;
+    /* Tilted, the visual height compresses; bump aspect-ratio to compensate */
+    aspect-ratio: 7 / 12;
     background:
-      radial-gradient(ellipse at center, rgba(32, 126, 213, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at center, rgba(32, 126, 213, 0.10) 0%, transparent 65%),
       linear-gradient(180deg, #0a1628 0%, #051120 50%, #0a1628 100%);
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.14);
     overflow: hidden;
+    transform: rotateX(42deg);
+    transform-origin: center bottom;
+    transform-style: preserve-3d;
+    box-shadow: 0 60px 80px rgba(0,0,0,0.55);
   }
   .pitch-lines {
     position: absolute;
@@ -77,27 +93,34 @@
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     padding: 28px 16px;
+    transform-style: preserve-3d;
   }
   .pitch-row {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     gap: 8px;
+    transform-style: preserve-3d;
   }
   .player-card {
-    background: rgba(10, 22, 40, 0.92);
-    border: 1px solid rgba(255,255,255,0.18);
+    background: linear-gradient(180deg, rgba(15, 30, 56, 0.96) 0%, rgba(10, 22, 40, 0.96) 100%);
+    border: 1px solid rgba(255,255,255,0.22);
     padding: 10px 12px;
     min-width: 96px;
     max-width: 130px;
     text-align: center;
     color: #fff;
     cursor: pointer;
-    transition: transform 0.15s ease, border-color 0.15s ease;
+    transition: border-color 0.15s ease, filter 0.15s ease;
+    /* Counter-rotate so the card stands upright against the tilted pitch */
+    transform: rotateX(-42deg) translateZ(2px);
+    transform-origin: center bottom;
+    /* drop-shadow respects 3D transforms; gives a "standee" shadow */
+    filter: drop-shadow(0 10px 8px rgba(0,0,0,0.7));
   }
   .player-card:hover {
-    transform: translateY(-2px);
     border-color: var(--blue-light);
+    filter: drop-shadow(0 14px 12px rgba(32,126,213,0.4));
   }
   .player-card-num {
     font-family: 'Archivo', sans-serif;
@@ -125,9 +148,9 @@
     margin-top: 4px;
   }
 
-  /* Bench */
+  /* Bench — flat (no 3D) */
   .bench {
-    margin-top: 32px;
+    margin-top: 24px;
   }
   .bench-eyebrow {
     font-family: 'JetBrains Mono', monospace;
@@ -144,17 +167,24 @@
     gap: 12px;
     flex-wrap: wrap;
   }
-  .bench-row .player-card { background: rgba(255,255,255,0.04); }
+  .bench-row .player-card {
+    transform: none;
+    filter: none;
+    background: rgba(255,255,255,0.04);
+  }
+  .bench-row .player-card:hover { filter: none; }
 
-  /* Mobile: smaller cards so they fit on a phone-width pitch */
+  /* Mobile */
   @media (max-width: 600px) {
-    .pitch-section { padding: 20px 14px 40px !important; }
+    .pitch-section { padding: 20px 14px 56px !important; }
+    .pitch { aspect-ratio: 7 / 13; transform: rotateX(38deg); }
     .pitch-rows { padding: 18px 6px; }
     .pitch-row { gap: 4px; }
     .player-card {
       min-width: 64px;
       max-width: 90px;
       padding: 6px 6px;
+      transform: rotateX(-38deg);
     }
     .player-card-num { font-size: 16px; }
     .player-card-name { font-size: 11px; margin-top: 3px; }
@@ -173,6 +203,7 @@
         <div class="pitch-formation">4 — 3 — 3</div>
       </div>
 
+      <div class="pitch-stage">
       <div class="pitch" role="img" aria-label="Starting XI on the pitch">
         <svg class="pitch-lines" viewBox="0 0 100 140" preserveAspectRatio="none" aria-hidden="true">
           <rect x="1" y="1" width="98" height="138" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="0.4"/>
@@ -210,6 +241,7 @@
             <div class="player-card"><div class="player-card-num">01</div><div class="player-card-name">TBD</div><div class="player-card-pos">GK</div></div>
           </div>
         </div>
+      </div>
       </div>
 
       <div class="bench">
