@@ -113,7 +113,7 @@
 
       <div>
         <div class="font-mono" style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--line);">— Front Office</div>
-        <div id="fo-grid" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:0;border:1px solid var(--line);background:#fff;"></div>
+        <div id="fo-grid" style="display:grid;grid-template-columns:repeat(6, 1fr);gap:0;border:1px solid var(--line);background:#fff;"></div>
       </div>
     </div>
   </section>
@@ -147,12 +147,15 @@
         '</div>';
     }).join("");
 
-    // Front Office — 3 cols, no numbering
+    // Front Office — 6-col grid: first 3 span 2 cols (top row of 3),
+    // remaining 2 span 3 cols (bottom row centered, larger boxes).
     var fo = D.frontOffice;
     document.getElementById("fo-grid").innerHTML = fo.map(function (p, i) {
-      var br = (i % 3 !== 2) ? "1px solid var(--line)" : "none";
-      var bb = i < fo.length - 3 ? "1px solid var(--line)" : "none";
-      return '<div style="padding:28px 28px 32px;border-right:' + br + ';border-bottom:' + bb + ';">' +
+      var span = i < 3 ? 2 : 3;
+      var lastInRow = (i === 2) || (i === fo.length - 1);
+      var br = lastInRow ? "none" : "1px solid var(--line)";
+      var bb = i < 3 ? "1px solid var(--line)" : "none";
+      return '<div style="grid-column:span ' + span + ';padding:28px 28px 32px;border-right:' + br + ';border-bottom:' + bb + ';">' +
           '<div class="font-display" style="font-size:22px;font-weight:800;line-height:1.05;margin-bottom:8px;">' + p.name + '</div>' +
           '<div class="font-mono" style="font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(15,15,16,0.55);line-height:1.4;">' + p.role + '</div>' +
         '</div>';
