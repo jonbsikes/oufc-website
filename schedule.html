@@ -94,17 +94,18 @@
       '</div>';
       var vs = '<span class="font-mono" style="font-size:11px;color:rgba(15,15,16,0.4);margin:0 4px;flex-shrink:0;">vs</span>';
       var matchup = m.home ? (oufcGroup + vs + oppGroup) : (oppGroup + vs + oufcGroup);
-      var noteHTML = m.note ? '<span class="font-mono" style="font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue);margin-left:auto;padding:4px 8px;border:1px solid var(--blue);white-space:nowrap;flex-shrink:0;">' + m.note + '</span>' : '';
       var ctaHTML = m.home
         ? '<a class="btn btn-primary" href="' + D.ticketsUrl + '" target="_blank" rel="noopener" style="padding:10px 16px;font-size:11px;">Tickets</a>'
         : '<a class="btn btn-ghost" href="#" style="padding:10px 16px;font-size:11px;">Away</a>';
-      return '<div style="display:grid;grid-template-columns:120px 1fr 130px 130px;align-items:center;padding:20px 24px;border-bottom:' + border + ';gap:20px;background:' + bg + ';">' +
+      return '<div style="display:grid;grid-template-columns:120px 1fr 130px;align-items:center;padding:20px 24px;border-bottom:' + border + ';gap:20px;background:' + bg + ';">' +
           '<div>' +
             '<div class="font-display" style="font-size:22px;font-weight:800;letter-spacing:-0.005em;">' + m.date + '</div>' +
             '<div class="font-mono" style="font-size:10px;color:rgba(15,15,16,0.5);letter-spacing:0.14em;margin-top:2px;">' + m.day + '</div>' +
           '</div>' +
-          '<div style="display:flex;align-items:center;gap:16px;flex-wrap:nowrap;min-width:0;">' + matchup + noteHTML + '</div>' +
-          '<div class="font-mono" style="font-size:10px;color:rgba(15,15,16,0.6);letter-spacing:0.12em;text-transform:uppercase;">' + m.venue + '</div>' +
+          '<div style="min-width:0;">' +
+            '<div style="display:flex;align-items:center;gap:16px;flex-wrap:nowrap;">' + matchup + '</div>' +
+            '<div class="font-mono" style="font-size:10px;color:rgba(15,15,16,0.55);letter-spacing:0.12em;text-transform:uppercase;margin-top:8px;">' + m.venue + '</div>' +
+          '</div>' +
           '<div style="text-align:right;">' + ctaHTML + '</div>' +
         '</div>';
     }).join("");
