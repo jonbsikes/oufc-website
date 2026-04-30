@@ -196,7 +196,8 @@ a { color: inherit; }
 .hero-watermark {
   position: absolute;
   top: 140px;
-  right: clamp(80px, 10vw, 200px);
+  /* Align right edge with the 1440px content gutter (48px section padding). */
+  right: max(48px, calc((100vw - 1440px) / 2 + 48px));
   width: clamp(180px, 22vw, 360px);
   height: auto;
   opacity: 0.85;
@@ -207,7 +208,7 @@ a { color: inherit; }
 @media (max-width: 1024px) {
   .hero-watermark {
     top: 110px;
-    right: clamp(48px, 6vw, 96px);
+    right: 32px;
     width: clamp(140px, 24vw, 220px);
     opacity: 0.7;
   }
