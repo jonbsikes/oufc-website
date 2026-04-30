@@ -68,8 +68,7 @@
   .pitch {
     position: relative;
     width: 100%;
-    /* Tilted, the visual height compresses; bump aspect-ratio to compensate */
-    aspect-ratio: 7 / 12;
+    aspect-ratio: 7 / 9;
     background:
       radial-gradient(ellipse at center, rgba(32, 126, 213, 0.10) 0%, transparent 65%),
       linear-gradient(180deg, #0a1628 0%, #051120 50%, #0a1628 100%);
@@ -177,7 +176,7 @@
   /* Mobile */
   @media (max-width: 600px) {
     .pitch-section { padding: 20px 14px 56px !important; }
-    .pitch { aspect-ratio: 7 / 13; transform: rotateX(38deg); }
+    .pitch { aspect-ratio: 7 / 10; transform: rotateX(38deg); }
     .pitch-rows { padding: 18px 6px; }
     .pitch-row { gap: 4px; }
     .player-card {
