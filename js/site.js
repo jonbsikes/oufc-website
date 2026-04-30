@@ -31,7 +31,8 @@
             '<img src="assets/logo-club.png" alt="OUFC" style="height:48px;width:auto;" />' +
             '<div class="font-display" style="font-weight:800;font-size:14px;letter-spacing:0.04em;line-height:1.1;text-transform:uppercase;">Oklahoma<br/>United FC</div>' +
           '</a>' +
-          '<nav style="display:flex;gap:4px;flex-wrap:wrap;justify-content:center;">' + links + '</nav>' +
+          '<nav class="nav-links" style="display:flex;gap:4px;flex-wrap:wrap;justify-content:center;">' + links + '</nav>' +
+          '<button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">MENU <span class="nav-toggle-icon">☰</span></button>' +
           '<a class="btn btn-primary" href="' + D.ticketsUrl + '" target="_blank" rel="noopener" style="padding:10px 18px;">Buy Tickets</a>' +
         '</div>' +
       '</header>';
@@ -119,5 +120,17 @@
   });
   document.querySelectorAll("[data-footer]").forEach(function (el) {
     el.outerHTML = footerHTML();
+  });
+
+  // Hamburger toggle — show/hide nav links on mobile
+  document.querySelectorAll(".nav-toggle").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var nav = btn.parentElement.querySelector(".nav-links");
+      if (!nav) return;
+      var open = nav.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      var icon = btn.querySelector(".nav-toggle-icon");
+      if (icon) icon.textContent = open ? "✕" : "☰";
+    });
   });
 })();
