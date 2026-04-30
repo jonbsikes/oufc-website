@@ -64,11 +64,11 @@
      so there's no dead space above. The pitch itself is absolutely positioned
      at the bottom so its dead top portion extends above the stage harmlessly. */
   .pitch-stage {
-    perspective: 1100px;
+    perspective: 1600px;
     perspective-origin: 50% 0%;
     position: relative;
-    /* visible aspect = pitch_aspect / cos(42deg) ≈ 7/9 / 0.743 → 7/6.7 */
-    aspect-ratio: 7 / 6.7;
+    /* visible aspect = pitch_aspect / cos(60deg) = 7/9 / 0.5 → 7/4.5 */
+    aspect-ratio: 7 / 4.5;
   }
   .pitch {
     position: absolute;
@@ -81,7 +81,7 @@
       linear-gradient(180deg, #0a1628 0%, #051120 50%, #0a1628 100%);
     border: 1px solid rgba(255,255,255,0.14);
     overflow: hidden;
-    transform: rotateX(42deg);
+    transform: rotateX(60deg);
     transform-origin: center bottom;
     transform-style: preserve-3d;
     box-shadow: 0 60px 80px rgba(0,0,0,0.55);
@@ -93,37 +93,33 @@
     height: 100%;
     pointer-events: none;
   }
+  /* Cards are a flat 2D overlay on top of the tilted pitch — no 3D, so every
+     card is the same size regardless of its row. */
   .pitch-rows {
     position: absolute;
     inset: 0;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    padding: 28px 16px;
-    transform-style: preserve-3d;
+    padding: 14px 16px;
+    z-index: 2;
   }
   .pitch-row {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     gap: 8px;
-    transform-style: preserve-3d;
   }
   .player-card {
     background: linear-gradient(180deg, rgba(15, 30, 56, 0.96) 0%, rgba(10, 22, 40, 0.96) 100%);
     border: 1px solid rgba(255,255,255,0.22);
     padding: 10px 12px;
-    min-width: 96px;
-    max-width: 130px;
+    width: 110px;
+    box-sizing: border-box;
     text-align: center;
     color: #fff;
     cursor: pointer;
     transition: border-color 0.15s ease, filter 0.15s ease;
-    /* Counter-rotate to face the camera dead-on (vertical from world frame),
-       then lift up off the pitch surface so the card looks like a 3D standee
-       hovering above the pitch with a shadow on the grass behind it. */
-    transform: rotateX(-42deg) translateZ(36px);
-    transform-origin: center bottom;
-    filter: drop-shadow(0 22px 14px rgba(0,0,0,0.75));
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.7));
   }
   .player-card:hover {
     border-color: var(--blue-light);
@@ -184,15 +180,13 @@
   /* Mobile */
   @media (max-width: 600px) {
     .pitch-section { padding: 20px 14px 56px !important; }
-    .pitch-stage { aspect-ratio: 7 / 7.9; }
-    .pitch { aspect-ratio: 7 / 10; transform: rotateX(38deg); }
-    .pitch-rows { padding: 18px 6px; }
+    .pitch-stage { aspect-ratio: 7 / 5; }
+    .pitch { aspect-ratio: 7 / 10; transform: rotateX(60deg); }
+    .pitch-rows { padding: 10px 6px; }
     .pitch-row { gap: 4px; }
     .player-card {
-      min-width: 64px;
-      max-width: 90px;
+      width: 72px;
       padding: 6px 6px;
-      transform: rotateX(-38deg) translateZ(28px);
     }
     .player-card-num { font-size: 16px; }
     .player-card-name { font-size: 11px; margin-top: 3px; }
@@ -222,8 +216,9 @@
           <rect x="40" y="1" width="20" height="5" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="0.4"/>
           <rect x="40" y="134" width="20" height="5" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="0.4"/>
         </svg>
+      </div>
 
-        <div class="pitch-rows">
+      <div class="pitch-rows">
           <!-- Forwards (top of pitch) -->
           <div class="pitch-row">
             <div class="player-card"><div class="player-card-num">11</div><div class="player-card-name">TBD</div><div class="player-card-pos">LW</div></div>
@@ -248,7 +243,6 @@
             <div class="player-card"><div class="player-card-num">01</div><div class="player-card-name">TBD</div><div class="player-card-pos">GK</div></div>
           </div>
         </div>
-      </div>
       </div>
 
       <div class="bench">
