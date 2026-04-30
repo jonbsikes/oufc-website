@@ -230,7 +230,8 @@ a { color: inherit; }
   width: 100%;
   background: var(--paper);
   color: var(--ink);
-  overflow-x: hidden;
+  /* `clip` (not `hidden`) so position:sticky descendants still work. */
+  overflow-x: clip;
 }
 .page-dark { background: var(--navy); color: #fff; }
 
