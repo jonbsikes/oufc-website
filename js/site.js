@@ -25,7 +25,7 @@
     }).join("");
 
     return '' +
-      '<header style="background:#fff;color:var(--ink);border-bottom:1px solid var(--line);">' +
+      '<header style="background:#fff;color:var(--ink);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;box-shadow:0 1px 0 rgba(15,15,16,0.04);">' +
         '<div style="max-width:1440px;margin:0 auto;padding:0 48px;height:76px;display:flex;align-items:center;justify-content:space-between;">' +
           '<a href="index.html" style="display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;">' +
             '<img src="assets/logo-club.png" alt="OUFC" style="height:48px;width:auto;" />' +
