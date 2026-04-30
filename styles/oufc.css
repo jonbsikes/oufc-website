@@ -76,11 +76,10 @@ a { color: inherit; }
 }
 .eyebrow-light { color: rgba(255,255,255,0.55); }
 
-/* Page wrapper */
+/* Page wrapper — full-bleed; section backgrounds run edge-to-edge,
+   inner content is centered at max-width: 1440px inside each section. */
 .page {
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
   background: var(--paper);
   color: var(--ink);
   overflow-x: hidden;
