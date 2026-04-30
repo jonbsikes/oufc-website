@@ -142,6 +142,49 @@ a { color: inherit; }
   .ig-marquee-row { animation: none; }
 }
 
+/* Partner tier marquee — same loop pattern, sized per tier via inline vars. */
+.partner-marquee {
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+.partner-marquee-row {
+  display: flex;
+  width: max-content;
+  animation: partner-marquee var(--marquee-duration, 60s) linear infinite;
+  will-change: transform;
+}
+.partner-marquee:hover .partner-marquee-row {
+  animation-play-state: paused;
+}
+.partner-marquee-item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  margin-right: 1px;
+  padding: 0 24px;
+  text-align: center;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(15, 15, 16, 0.78);
+}
+.partner-marquee-item img {
+  max-width: 80%;
+  max-height: 70%;
+  object-fit: contain;
+}
+@keyframes partner-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .partner-marquee-row { animation: none; }
+}
+
 /* Page wrapper — full-bleed; section backgrounds run edge-to-edge,
    inner content is centered at max-width: 1440px inside each section. */
 .page {

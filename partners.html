@@ -66,15 +66,23 @@
     var host = document.getElementById("partner-tiers");
     var visible = D.partnerTiers.filter(function (t) { return t.partners && t.partners.length > 0; });
     host.innerHTML = visible.map(function (tier, ti) {
-      var cols = tier.tier === "Premier" ? 3 : tier.tier === "United" ? 4 : tier.tier === "Founders" ? 5 : tier.tier === "Founding Family" ? 6 : 6;
       var h = tier.tier === "Premier" ? 200 : tier.tier === "United" ? 160 : tier.tier === "Founders" ? 130 : tier.tier === "Founding Family" ? 110 : 90;
+      var w = tier.tier === "Premier" ? 360 : tier.tier === "United" ? 300 : tier.tier === "Founders" ? 240 : tier.tier === "Founding Family" ? 200 : 170;
       var fs = tier.tier === "Premier" ? 28 : tier.tier === "United" ? 22 : tier.tier === "Founders" ? 18 : tier.tier === "Founding Family" ? 15 : 12;
-      var cells = tier.partners.map(function (p) {
+      // Pixels-per-second pace — larger tiers move slightly slower for readability.
+      var pxPerSec = tier.tier === "Premier" ? 60 : tier.tier === "United" ? 70 : 80;
+      var loopWidth = (w + 1) * tier.partners.length;
+      var duration = Math.max(20, Math.round(loopWidth / pxPerSec));
+
+      function cell(p) {
         var inner = p.logo
-          ? '<img src="' + p.logo + '" alt="' + p.name + '" style="max-width:80%;max-height:70%;object-fit:contain;" />'
+          ? '<img src="' + p.logo + '" alt="' + p.name + '" />'
           : p.name;
-        return '<div class="font-display" style="height:' + h + 'px;display:flex;align-items:center;justify-content:center;font-size:' + fs + 'px;font-weight:700;letter-spacing:0.04em;color:rgba(15,15,16,0.78);background:var(--paper);padding:0 12px;text-align:center;line-height:1.15;">' + inner + '</div>';
-      }).join("");
+        return '<div class="partner-marquee-item font-display" style="width:' + w + 'px;height:' + h + 'px;font-size:' + fs + 'px;">' + inner + '</div>';
+      }
+      // Duplicate the list so translateX(-50%) loops seamlessly.
+      var cells = tier.partners.map(cell).join("") + tier.partners.map(cell).join("");
+
       return '<div style="margin-bottom:64px;">' +
         '<div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--line-strong);">' +
           '<div style="display:flex;align-items:baseline;gap:16px;">' +
@@ -85,7 +93,9 @@
             '</div>' +
           '</div>' +
         '</div>' +
-        '<div style="display:grid;grid-template-columns:repeat(' + cols + ', 1fr);gap:1px;background:var(--line);border:1px solid var(--line);">' + cells + '</div>' +
+        '<div class="partner-marquee" style="--marquee-duration:' + duration + 's;">' +
+          '<div class="partner-marquee-row" aria-label="' + tier.tier + ' partners">' + cells + '</div>' +
+        '</div>' +
       '</div>';
     }).join("");
   })();
