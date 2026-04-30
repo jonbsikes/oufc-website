@@ -118,16 +118,16 @@
     color: #fff;
     cursor: pointer;
     transition: border-color 0.15s ease, filter 0.15s ease;
-    /* Over-counter-rotate the pitch's 42° tilt by ~13° so the top of each
-       card leans forward toward the viewer — like standees looking up at you. */
-    transform: rotateX(-55deg) translateZ(2px);
+    /* Counter-rotate to face the camera dead-on (vertical from world frame),
+       then lift up off the pitch surface so the card looks like a 3D standee
+       hovering above the pitch with a shadow on the grass behind it. */
+    transform: rotateX(-42deg) translateZ(36px);
     transform-origin: center bottom;
-    /* drop-shadow respects 3D transforms; gives a "standee" shadow */
-    filter: drop-shadow(0 10px 8px rgba(0,0,0,0.7));
+    filter: drop-shadow(0 22px 14px rgba(0,0,0,0.75));
   }
   .player-card:hover {
     border-color: var(--blue-light);
-    filter: drop-shadow(0 14px 12px rgba(32,126,213,0.4));
+    filter: drop-shadow(0 26px 16px rgba(32,126,213,0.45));
   }
   .player-card-num {
     font-family: 'Archivo', sans-serif;
@@ -192,7 +192,7 @@
       min-width: 64px;
       max-width: 90px;
       padding: 6px 6px;
-      transform: rotateX(-51deg);
+      transform: rotateX(-38deg) translateZ(28px);
     }
     .player-card-num { font-size: 16px; }
     .player-card-name { font-size: 11px; margin-top: 3px; }
