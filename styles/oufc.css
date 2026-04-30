@@ -195,8 +195,8 @@ a { color: inherit; }
    Hidden on phones to keep the title and image breathing room. */
 .hero-watermark {
   position: absolute;
-  top: 120px;
-  right: 64px;
+  top: 140px;
+  right: clamp(80px, 10vw, 200px);
   width: clamp(180px, 22vw, 360px);
   height: auto;
   opacity: 0.85;
@@ -206,8 +206,8 @@ a { color: inherit; }
 }
 @media (max-width: 1024px) {
   .hero-watermark {
-    top: 96px;
-    right: 32px;
+    top: 110px;
+    right: clamp(48px, 6vw, 96px);
     width: clamp(140px, 24vw, 220px);
     opacity: 0.7;
   }
