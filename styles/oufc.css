@@ -95,6 +95,53 @@ a { color: inherit; }
 .nav-toggle:hover { background: var(--ink); color: #fff; }
 .nav-toggle-icon { font-size: 14px; line-height: 1; }
 
+/* Instagram marquee — auto-scrolling continuous loop.
+   Items are duplicated in HTML so translateX(-50%) loops seamlessly. */
+.ig-marquee {
+  overflow: hidden;
+  position: relative;
+}
+.ig-marquee-row {
+  display: flex;
+  width: max-content;
+  animation: ig-marquee 60s linear infinite;
+  will-change: transform;
+}
+.ig-marquee:hover .ig-marquee-row {
+  animation-play-state: paused;
+}
+.ig-marquee-item {
+  flex: 0 0 280px;
+  height: 280px;
+  position: relative;
+  display: block;
+  margin-right: 4px;
+  text-decoration: none;
+}
+.ig-marquee-item img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+.ig-marquee-meta {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  color: #fff;
+  letter-spacing: 0.14em;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+  font-size: 10px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+@keyframes ig-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ig-marquee-row { animation: none; }
+}
+
 /* Page wrapper — full-bleed; section backgrounds run edge-to-edge,
    inner content is centered at max-width: 1440px inside each section. */
 .page {
