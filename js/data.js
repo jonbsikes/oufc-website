@@ -1,0 +1,81 @@
+// Real OUFC data — single source of truth
+window.OUFC_DATA = {
+  stadium: { name: "Chad Richison Stadium", city: "Edmond, OK" },
+  league: "The League FC · Red River Conference",
+  ig: "https://www.instagram.com/oklahomaunitedfc/",
+  ticketsUrl: "https://www.intix.com/org/oklahoma-united-fc",
+  shopUrl: "https://www.oklahomaunitedfcstore.com/category/all-products",
+  prices: {
+    singleAdult: "$10",
+    singleYouth: "$4",
+    seasonPass: "$40",
+  },
+  schedule: [
+    { date: "MAY 17", day: "SUN · 6:00 PM", home: true,  opp: "Dallas Dragons FC", logo: "assets/teams/dallas-dragons.png", abbr: "DAL", venue: "Chad Richison Stadium · Edmond, OK", note: "Home Opener" },
+    { date: "MAY 23", day: "SAT · 7:00 PM", home: false, opp: "Foro Soccer Club",  logo: "assets/teams/foro.png",           abbr: "FOR", venue: "Foro Sports Complex · Dallas, TX", note: null },
+    { date: "MAY 30", day: "SAT · 7:00 PM", home: false, opp: "Dallas Dragons FC", logo: "assets/teams/dallas-dragons.png", abbr: "DAL", venue: "Clark East Field · Plano, TX", note: null },
+    { date: "JUN 03", day: "WED · 7:00 PM", home: false, opp: "Central Dallas FC", logo: "assets/teams/central-dallas.png", abbr: "CDF", venue: "Dallas, TX", note: null },
+    { date: "JUN 06", day: "SAT · 7:30 PM", home: true,  opp: "FC Dallas U23s",    logo: "assets/teams/fcd-u23.png",        abbr: "FCD", venue: "Chad Richison Stadium · Edmond, OK", note: null },
+    { date: "JUN 10", day: "WED · 7:00 PM", home: true,  opp: "Tenfifteen FC",     logo: "assets/teams/tenfifteen.png",     abbr: "T15", venue: "Chad Richison Stadium · Edmond, OK", note: null },
+    { date: "JUN 13", day: "SAT · 7:00 PM", home: true,  opp: "Foro Soccer Club",  logo: "assets/teams/foro.png",           abbr: "FOR", venue: "Chad Richison Stadium · Edmond, OK", note: null },
+    { date: "JUN 20", day: "SAT · 7:00 PM", home: false, opp: "Tenfifteen FC",     logo: "assets/teams/tenfifteen.png",     abbr: "T15", venue: "Tom Landry Stadium · Addison, TX", note: null },
+    { date: "JUN 26", day: "FRI · 7:00 PM", home: false, opp: "FC Dallas U23s",    logo: "assets/teams/fcd-u23.png",        abbr: "FCD", venue: "Toyota Soccer Center · Frisco, TX", note: null },
+    { date: "JUL 03", day: "FRI · 7:00 PM", home: true,  opp: "Central Dallas FC", logo: "assets/teams/central-dallas.png", abbr: "CDF", venue: "Chad Richison Stadium · Edmond, OK", note: "Final Home" },
+  ],
+  coaches: [
+    { name: "Jimmy Nielsen", role: "Head Coach", note: "Sporting Director · The White Puma · 2013 MLS Cup champion (Sporting KC)" },
+    { name: "Name", role: "Title" },
+    { name: "Name", role: "Title" },
+    { name: "Name", role: "Title" },
+    { name: "Name", role: "Title" },
+  ],
+  frontOffice: [
+    { name: "Abdullah Ashraf", role: "CEO · President of the Board · Partner" },
+    { name: "Sauban Hanif", role: "Executive Vice President · Partner" },
+    { name: "Zain Ahmed", role: "Executive Vice President · Partner" },
+    { name: "Alex Zonneveld", role: "General Manager" },
+    { name: "Blair Sutter", role: "Team Attorney" },
+    { name: "Devin Williams", role: "Sports Data Analytics Director" },
+    { name: "Travis Komancheet", role: "Co-Director, Merch & Apparel" },
+    { name: "Kristy Komancheet", role: "Co-Director, Merch & Apparel" },
+  ],
+  community: {
+    stats: [
+      { v: "25", l: "Community Initiatives Launched" },
+      { v: "$30,000", l: "Donated to High School Athletics" },
+      { v: "31,000+", l: "OK Youth in Organized Soccer" },
+      { v: "7,000+", l: "OK High School Soccer Players" },
+    ],
+    urInitiative: {
+      title: "The UR Initiative",
+      tagline: "(U)rban & (R)ural Communities · Supporting girls public-school soccer in Oklahoma.",
+      points: [
+        { h: "Direct, Flexible Grants", b: "$1,000 unrestricted grants to recipient school districts — spent on gear, travel, training, whatever the program needs most." },
+        { h: "A Circle of Support", b: "Every recipient district gets a free one-day summer camp, an in-season team training session, and a collegiate recruitment seminar — led by OUFC players and staff with NCAA D1 and pro experience." },
+        { h: "Free Tickets & Gear", b: "Grant recipients get free tickets to all home games. Every player, coach, and support staff member receives a club t-shirt." },
+        { h: "Banners on the Field", b: "Schools can proudly fly a 3×3 OUFC banner at their field or athletic facility — a visible signal of partnership and pride." },
+      ],
+    },
+    youth: {
+      academy: "South Lakes Soccer Club",
+      tagline: "The Official Academy of Oklahoma United FC. Rooted in Moore and South OKC.",
+      pillars: [
+        { h: "Comprehensive Player Development", b: "Recreational programs ages 4–17, academy training U7–U10, and competitive teams under the Oklahoma Cosmos banner U11–U19. A clear pathway from first kick to competitive play." },
+        { h: "Strong Community Engagement", b: "Volunteer-coached, family-focused. Accessible soccer that doesn't price kids out — the heart of how OKC plays the game." },
+        { h: "Positive Environment", b: "Coaches build relationships first, results second. Players develop confidence and a lifelong love for the game in a supportive atmosphere." },
+      ],
+    },
+    indigenousId: {
+      title: "Indigenous Identification",
+      tagline: "Honoring the Native nations of Oklahoma in everything we do.",
+      body: "Oklahoma is home to 39 federally recognized tribal nations. OUFC is built on that ground — our front office and creative team include tribal members, and our community work reaches reservation schools and intertribal youth programs across the state. The beautiful game has roots here that long predate any league.",
+    },
+  },
+  partnerTiers: [
+    { tier: "Premier", names: ["Mercy Health", "Sonic Drive-In", "American Fidelity"] },
+    { tier: "United", names: ["OG&E", "Devon Energy", "Love's Travel Stops", "Paycom"] },
+    { tier: "Founders", names: ["Hobby Lobby", "Braum's", "Chesapeake Energy", "Crawford Family Foundation", "Stillwater Milling"] },
+    { tier: "Founding Family", names: ["Lopez Foods", "Echo Investment", "Tinker Federal CU", "Heard on Hurd", "OKC Metro Library", "Edmond Chamber"] },
+    { tier: "Poster", names: ["Golden Poodle", "Knockouts Haircuts", "Roxy's Ice Cream", "Thunderdome Tattoo", "Othello's", "The Hall's Pizza", "Tucker's Onion Burgers", "Pump Bar", "The Jones Assembly", "Saints", "Nonesuch", "Cuppies & Joe", "Kaiser's", "Big Truck Tacos", "Picasso Café"] },
+  ],
+};

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Tickets · Oklahoma United FC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="assets/logo-club.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,75..125,400..900;1,75..125,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles/oufc.css" />
+</head>
+<body>
+<div class="page">
+  <div data-nav data-active="Home"></div>
+
+  <section style="background:var(--blue);color:#fff;padding:88px 48px;position:relative;overflow:hidden;">
+    <div style="max-width:1440px;margin:0 auto;position:relative;">
+      <div class="font-mono" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:18px;">— Matchday at Chad Richison · General Admission</div>
+      <h1 class="font-display" style="font-size:clamp(64px, 11vw, 128px);font-weight:900;line-height:0.9;text-transform:uppercase;letter-spacing:-0.02em;max-width:1100px;">Tickets.<br/>Five matches.<br/>One city.</h1>
+      <p style="font-size:18px;line-height:1.5;color:rgba(255,255,255,0.85);max-width:540px;margin-top:28px;">Open seating throughout Chad Richison Stadium in Edmond. Find your people, pick your side, sing loud.</p>
+      <a class="btn" href="https://www.intix.com/org/oklahoma-united-fc" target="_blank" rel="noopener" style="background:#fff;color:var(--blue);margin-top:28px;">Buy on intix.com →</a>
+    </div>
+    <div class="font-display" style="position:absolute;right:-40px;top:-80px;font-size:540px;font-weight:900;color:rgba(255,255,255,0.06);line-height:1;letter-spacing:-0.04em;pointer-events:none;">26</div>
+  </section>
+
+  <section style="padding:96px 48px;max-width:1440px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:24px;">
+      <div style="padding:36px;border:1px solid var(--line);background:var(--paper);color:var(--ink);display:flex;flex-direction:column;gap:18px;position:relative;">
+        <div class="font-mono" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;opacity:0.7;">Single Match · Adult</div>
+        <div class="font-display" style="font-size:72px;font-weight:900;line-height:1;">$10</div>
+        <p style="font-size:15px;line-height:1.5;opacity:0.85;flex:1;">General admission. Pick a match, walk in, find your spot.</p>
+        <a class="btn" href="https://www.intix.com/org/oklahoma-united-fc" target="_blank" rel="noopener" style="background:var(--ink);color:#fff;">Buy Single Match →</a>
+      </div>
+      <div style="padding:36px;border:2px solid var(--blue);background:var(--blue);color:#fff;display:flex;flex-direction:column;gap:18px;position:relative;">
+        <div class="font-mono" style="position:absolute;top:-12px;left:24px;background:var(--gold);color:var(--ink);padding:4px 12px;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;">Best Value</div>
+        <div class="font-mono" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;opacity:0.7;">Season Pass (5 home)</div>
+        <div class="font-display" style="font-size:72px;font-weight:900;line-height:1;">$40</div>
+        <p style="font-size:15px;line-height:1.5;opacity:0.85;flex:1;">All 5 home matches at Chad Richison Stadium. Founding-member badge.</p>
+        <a class="btn" href="https://www.intix.com/org/oklahoma-united-fc" target="_blank" rel="noopener" style="background:#fff;color:var(--blue);">Buy Season Pass →</a>
+      </div>
+      <div style="padding:36px;border:1px solid var(--line);background:var(--paper);color:var(--ink);display:flex;flex-direction:column;gap:18px;position:relative;">
+        <div class="font-mono" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;opacity:0.7;">Single Match · Under 16</div>
+        <div class="font-display" style="font-size:72px;font-weight:900;line-height:1;">$4</div>
+        <p style="font-size:15px;line-height:1.5;opacity:0.85;flex:1;">Bring the next generation. Half the price of a movie ticket.</p>
+        <a class="btn" href="https://www.intix.com/org/oklahoma-united-fc" target="_blank" rel="noopener" style="background:var(--ink);color:#fff;">Buy Youth Ticket →</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--paper-2);padding:96px 48px;">
+    <div style="max-width:1440px;margin:0 auto;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:24px;">
+        <div>
+          <div class="eyebrow" style="margin-bottom:16px;">— 2026 Home Matches</div>
+          <h2 class="font-display" style="font-size:clamp(36px, 5vw, 56px);font-weight:800;text-transform:uppercase;line-height:0.95;letter-spacing:-0.01em;">Pick your match.</h2>
+        </div>
+        <a class="btn btn-dark" href="https://www.intix.com/org/oklahoma-united-fc" target="_blank" rel="noopener">Buy Season Pass →</a>
+      </div>
+      <div id="home-match-list" style="border:1px solid var(--line-strong);background:var(--paper);"></div>
+    </div>
+  </section>
+
+  <section style="padding:96px 48px;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+    <div>
+      <div class="eyebrow" style="margin-bottom:16px;">— Matchday Guide</div>
+      <h2 class="font-display" style="font-size:clamp(36px, 5vw, 56px);font-weight:800;text-transform:uppercase;line-height:0.95;letter-spacing:-0.01em;margin-bottom:24px;">Know before<br/>you go.</h2>
+      <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line-strong);">
+        <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);">
+          <div class="font-mono" style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(15,15,16,0.55);">Stadium</div>
+          <div class="font-display" style="font-size:17px;font-weight:600;">Chad Richison Stadium · Edmond, OK</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);">
+          <div class="font-mono" style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(15,15,16,0.55);">Gates Open</div>
+          <div class="font-display" style="font-size:17px;font-weight:600;">90 minutes before kickoff</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);">
+          <div class="font-mono" style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(15,15,16,0.55);">Bag Policy</div>
+          <div class="font-display" style="font-size:17px;font-weight:600;">Clear bags only · 12" max</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);">
+          <div class="font-mono" style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(15,15,16,0.55);">Parking</div>
+          <div class="font-display" style="font-size:17px;font-weight:600;">On-site lots · free with ticket</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);">
+          <div class="font-mono" style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(15,15,16,0.55);">Kids Under 5</div>
+          <div class="font-display" style="font-size:17px;font-weight:600;">Free entry on a parent's lap</div>
+        </div>
+      </div>
+    </div>
+    <img src="assets/community-3.jpg" alt="Chad Richison Stadium" style="width:100%;aspect-ratio:4/5;object-fit:cover;" />
+  </section>
+
+  <div data-footer></div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/site.js"></script>
+<script>
+  (function () {
+    var D = window.OUFC_DATA;
+    var home = D.schedule.filter(function (m) { return m.home; });
+    var host = document.getElementById("home-match-list");
+    host.innerHTML = home.map(function (m, i) {
+      var border = i < home.length - 1 ? "1px solid var(--line)" : "none";
+      var note = m.note ? '<span class="font-mono" style="font-size:10px;padding:5px 10px;background:var(--blue);color:#fff;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;">' + m.note + '</span>' : '';
+      return '<div style="display:grid;grid-template-columns:140px 1fr 1fr 160px;align-items:center;padding:22px 28px;border-bottom:' + border + ';gap:24px;">' +
+          '<div>' +
+            '<div class="font-display" style="font-size:26px;font-weight:800;">' + m.date + '</div>' +
+            '<div class="font-mono" style="font-size:10px;color:rgba(15,15,16,0.5);letter-spacing:0.14em;">' + m.day + '</div>' +
+          '</div>' +
+          '<div>' +
+            '<div class="font-display" style="font-size:22px;font-weight:700;">OUFC vs ' + m.opp + '</div>' +
+            '<div class="font-mono" style="font-size:10px;color:rgba(15,15,16,0.5);letter-spacing:0.14em;text-transform:uppercase;margin-top:4px;">Chad Richison Stadium · Edmond</div>' +
+          '</div>' +
+          '<div>' + note + '</div>' +
+          '<div style="text-align:right;"><a class="btn btn-primary" href="' + D.ticketsUrl + '" target="_blank" rel="noopener" style="padding:10px 18px;font-size:11px;">$10 — Buy</a></div>' +
+        '</div>';
+    }).join("");
+  })();
+</script>
+</body>
+</html>

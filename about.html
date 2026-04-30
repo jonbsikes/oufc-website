@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>About · Oklahoma United FC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="assets/logo-club.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,75..125,400..900;1,75..125,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles/oufc.css" />
+</head>
+<body>
+<div class="page">
+  <div data-nav data-active="About"></div>
+
+  <!-- Hero -->
+  <section style="position:relative;background:var(--navy);color:#fff;overflow:hidden;padding:120px 48px;">
+    <img src="assets/community-2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.4;" />
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,22,40,0.7) 0%, rgba(10,22,40,0.95) 100%);"></div>
+    <div style="position:relative;max-width:1440px;margin:0 auto;">
+      <div class="font-mono" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue-light);margin-bottom:24px;">— Our Story · Founded 2024</div>
+      <h1 class="font-display" style="font-size:clamp(72px, 12vw, 144px);font-weight:900;line-height:0.88;text-transform:uppercase;letter-spacing:-0.025em;max-width:1200px;">An Oklahoma club, by Oklahomans.</h1>
+    </div>
+  </section>
+
+  <!-- Three pillars -->
+  <section style="padding:120px 48px;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;">
+    <div>
+      <div class="eyebrow" style="margin-bottom:16px;">— The Promise</div>
+      <h2 class="font-display" style="font-size:clamp(36px, 5vw, 56px);font-weight:800;line-height:0.95;text-transform:uppercase;letter-spacing:-0.01em;">Three words<br/>on the badge.</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:36px;">
+      <div style="display:grid;grid-template-columns:60px 1fr;gap:24px;padding-bottom:28px;border-bottom:1px solid var(--line);">
+        <div class="font-display" style="font-size:36px;font-weight:800;color:var(--blue);">01</div>
+        <div>
+          <h3 class="font-display" style="font-size:28px;font-weight:800;text-transform:uppercase;letter-spacing:-0.005em;margin-bottom:10px;">Integrity</h3>
+          <p style="font-size:16px;line-height:1.55;color:rgba(15,15,16,0.7);">We do the work the right way — on the pitch, in the office, in the community.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:60px 1fr;gap:24px;padding-bottom:28px;border-bottom:1px solid var(--line);">
+        <div class="font-display" style="font-size:36px;font-weight:800;color:var(--blue);">02</div>
+        <div>
+          <h3 class="font-display" style="font-size:28px;font-weight:800;text-transform:uppercase;letter-spacing:-0.005em;margin-bottom:10px;">Excellence</h3>
+          <p style="font-size:16px;line-height:1.55;color:rgba(15,15,16,0.7);">We hold ourselves to a standard worthy of the badge and the city it represents.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:60px 1fr;gap:24px;">
+        <div class="font-display" style="font-size:36px;font-weight:800;color:var(--blue);">03</div>
+        <div>
+          <h3 class="font-display" style="font-size:28px;font-weight:800;text-transform:uppercase;letter-spacing:-0.005em;margin-bottom:10px;">Community</h3>
+          <p style="font-size:16px;line-height:1.55;color:rgba(15,15,16,0.7);">Football opens the door. The work is what we do once we're inside.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The People -->
+  <section style="background:var(--paper-2);padding:120px 48px;">
+    <div style="max-width:1440px;margin:0 auto;">
+      <div class="eyebrow" style="margin-bottom:16px;">— Coaches, Front Office & Staff</div>
+      <h2 class="font-display" style="font-size:clamp(64px, 10vw, 96px);font-weight:900;text-transform:uppercase;line-height:0.92;letter-spacing:-0.02em;margin-bottom:12px;">The People</h2>
+      <p style="font-size:17px;line-height:1.5;color:rgba(15,15,16,0.65);max-width:720px;margin-bottom:72px;">The crew that runs the club, from touchline to boardroom.</p>
+
+      <div style="margin-bottom:72px;">
+        <div class="font-mono" style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--line);">— Coaches</div>
+        <div id="coaches-grid" style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px;"></div>
+      </div>
+
+      <div>
+        <div class="font-mono" style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--line);">— Front Office</div>
+        <div id="fo-grid" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:0;border:1px solid var(--line);background:#fff;"></div>
+      </div>
+    </div>
+  </section>
+
+  <div data-footer></div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/site.js"></script>
+<script>
+  (function () {
+    var D = window.OUFC_DATA;
+
+    // Coaches: Jimmy as featured photo card spanning 2 rows; remaining 4 as plain "Name/Title" placeholder cards
+    var coaches = D.coaches;
+    document.getElementById("coaches-grid").innerHTML = coaches.map(function (c, i) {
+      if (i === 0) {
+        return '<div style="background:#fff;border:1px solid var(--line);padding:0;grid-row:span 2;">' +
+            '<img src="assets/jimmy-nielsen.jpg" alt="' + c.name + '" style="width:100%;aspect-ratio:4/5;object-fit:cover;" />' +
+            '<div style="padding:28px 28px 32px;">' +
+              '<div class="font-mono" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;">— Head Coach</div>' +
+              '<div class="font-display" style="font-size:36px;font-weight:900;text-transform:uppercase;letter-spacing:-0.01em;line-height:0.95;margin-bottom:8px;">' + c.name + '</div>' +
+              '<div class="font-mono" style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(15,15,16,0.55);">' + c.note + '</div>' +
+            '</div>' +
+          '</div>';
+      }
+      return '<div style="background:#fff;border:1px solid var(--line);padding:28px;">' +
+          '<div class="font-mono" style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(15,15,16,0.45);margin-bottom:12px;">— Staff</div>' +
+          '<div class="font-display" style="font-size:22px;font-weight:800;line-height:1.05;margin-bottom:8px;">' + c.name + '</div>' +
+          '<div class="font-mono" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(15,15,16,0.55);">' + c.role + '</div>' +
+        '</div>';
+    }).join("");
+
+    // Front Office — 3 cols, no numbering
+    var fo = D.frontOffice;
+    document.getElementById("fo-grid").innerHTML = fo.map(function (p, i) {
+      var br = (i % 3 !== 2) ? "1px solid var(--line)" : "none";
+      var bb = i < fo.length - 3 ? "1px solid var(--line)" : "none";
+      return '<div style="padding:28px 28px 32px;border-right:' + br + ';border-bottom:' + bb + ';">' +
+          '<div class="font-display" style="font-size:22px;font-weight:800;line-height:1.05;margin-bottom:8px;">' + p.name + '</div>' +
+          '<div class="font-mono" style="font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(15,15,16,0.55);line-height:1.4;">' + p.role + '</div>' +
+        '</div>';
+    }).join("");
+  })();
+</script>
+</body>
+</html>

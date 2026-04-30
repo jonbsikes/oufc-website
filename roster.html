@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Roster · Oklahoma United FC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="assets/logo-club.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,75..125,400..900;1,75..125,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles/oufc.css" />
+</head>
+<body>
+<div class="page">
+  <div data-nav data-active="Roster"></div>
+
+  <section style="background:var(--ink);color:#fff;padding:72px 48px;">
+    <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr;align-items:flex-end;gap:40px;">
+      <div>
+        <div class="font-mono" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue-light);margin-bottom:18px;">— First Team</div>
+        <h1 class="font-display" style="font-size:clamp(72px, 10vw, 120px);font-weight:900;line-height:0.9;text-transform:uppercase;letter-spacing:-0.02em;">The XI</h1>
+      </div>
+      <div class="font-mono" style="font-size:12px;line-height:1.6;color:rgba(255,255,255,0.6);letter-spacing:0.04em;">
+        Roster TBD · Inaugural 2026 season<br/>The League FC · Red River Conference
+      </div>
+    </div>
+  </section>
+
+  <div id="roster-groups"></div>
+
+  <div data-footer></div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/site.js"></script>
+<script>
+  (function () {
+    var groups = ["Goalkeeper", "Defender", "Midfielder", "Forward"];
+    var make = function (n, pos) { return { n: n, name: "TBD", pos: pos }; };
+    var players = [
+      make("01", "Goalkeeper"), make("21", "Goalkeeper"),
+      make("02", "Defender"), make("04", "Defender"), make("05", "Defender"), make("14", "Defender"),
+      make("06", "Midfielder"), make("08", "Midfielder"), make("17", "Midfielder"), make("23", "Midfielder"),
+      make("09", "Forward"), make("10", "Forward"), make("11", "Forward"),
+    ];
+    var host = document.getElementById("roster-groups");
+    host.innerHTML = groups.map(function (g, gi) {
+      var cards = players.filter(function (p) { return p.pos === g; }).map(function (p) {
+        return '<div style="background:var(--paper-2);aspect-ratio:3/4;position:relative;overflow:hidden;cursor:pointer;">' +
+            '<div class="ph ph-light" style="position:absolute;inset:0;">TBD</div>' +
+            '<div class="font-display" style="position:absolute;left:16px;top:12px;font-size:80px;font-weight:900;line-height:1;color:var(--blue);opacity:0.95;">' + p.n + '</div>' +
+            '<div style="position:absolute;left:16px;right:16px;bottom:16px;">' +
+              '<div class="font-display" style="font-size:20px;font-weight:800;text-transform:uppercase;letter-spacing:-0.005em;color:var(--ink);">' + p.name + '</div>' +
+              '<div class="font-mono" style="font-size:10px;letter-spacing:0.14em;color:rgba(15,15,16,0.55);margin-top:4px;">To be announced</div>' +
+            '</div>' +
+          '</div>';
+      }).join("");
+      return '<section style="padding:64px 48px;border-bottom:1px solid var(--line);">' +
+        '<div style="max-width:1440px;margin:0 auto;">' +
+          '<h2 class="font-display" style="font-size:32px;font-weight:800;text-transform:uppercase;letter-spacing:-0.005em;margin-bottom:32px;color:var(--blue);">' +
+            '<span style="color:rgba(15,15,16,0.25);margin-right:14px;">' + String(gi + 1).padStart(2, "0") + '</span>' + g + 's' +
+          '</h2>' +
+          '<div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:18px;">' + cards + '</div>' +
+        '</div>' +
+      '</section>';
+    }).join("");
+  })();
+</script>
+</body>
+</html>

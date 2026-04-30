@@ -1,0 +1,88 @@
+/* OUFC Design System */
+:root {
+  --blue: #1a6fca;
+  --blue-light: #207ED5;
+  --blue-deep: #0a3d7a;
+  --navy: #0a1628;
+  --ink: #0f0f10;
+  --paper: #f5f4f0;
+  --paper-2: #ebe8e0;
+  --line: rgba(15,15,16,0.12);
+  --line-strong: rgba(15,15,16,0.28);
+  --gold: oklch(0.74 0.13 75);
+  --red: #c62828;
+  --green: #2e7d32;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { background: var(--paper); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+img { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+.font-display { font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-stretch: condensed; letter-spacing: -0.01em; }
+.font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+.uppercase { text-transform: uppercase; }
+.italic { font-style: italic; }
+
+/* placeholder image style */
+.ph {
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 8px, transparent 8px 16px),
+    linear-gradient(180deg, #1a2030, #0a1628);
+  color: rgba(255,255,255,0.55);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.ph-light {
+  background:
+    repeating-linear-gradient(135deg, rgba(15,15,16,0.04) 0 8px, transparent 8px 16px),
+    var(--paper-2);
+  color: rgba(15,15,16,0.55);
+}
+
+/* Shared button */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 22px;
+  border: none; cursor: pointer;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all .15s ease;
+}
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-primary:hover { background: var(--blue-light); }
+.btn-dark { background: var(--ink); color: #fff; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn-ghost-light { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(15,15,16,0.55);
+}
+.eyebrow-light { color: rgba(255,255,255,0.55); }
+
+/* Page wrapper */
+.page {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+.page-dark { background: var(--navy); color: #fff; }

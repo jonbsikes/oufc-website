@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Community · Oklahoma United FC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="assets/logo-club.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,75..125,400..900;1,75..125,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles/oufc.css" />
+</head>
+<body>
+<div class="page">
+  <div data-nav data-active="Community"></div>
+
+  <!-- Hero -->
+  <section style="position:relative;background:var(--navy);color:#fff;overflow:hidden;padding:120px 48px 100px;">
+    <img src="assets/community-2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35;" />
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,22,40,0.65) 0%, rgba(10,22,40,0.95) 100%);"></div>
+    <div style="position:relative;max-width:1440px;margin:0 auto;">
+      <div class="font-mono" style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue-light);margin-bottom:28px;">— Community · Youth · Indigenous ID</div>
+      <h1 class="font-display" style="font-size:clamp(80px, 14vw, 168px);font-weight:900;line-height:0.86;text-transform:uppercase;letter-spacing:-0.03em;max-width:1300px;">More than<br/>a club.</h1>
+      <p style="font-size:22px;line-height:1.4;max-width:720px;margin-top:32px;color:rgba(255,255,255,0.78);">To grow deep roots in our community and elevate the underserved peoples of Oklahoma.</p>
+    </div>
+  </section>
+
+  <!-- Stats strip -->
+  <section style="border-bottom:1px solid var(--line);background:#fff;">
+    <div id="stats-strip" style="max-width:1440px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:repeat(4, 1fr);"></div>
+  </section>
+
+  <!-- UR Initiative -->
+  <section style="padding:120px 48px;max-width:1440px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1.3fr;gap:80px;margin-bottom:64px;">
+      <div>
+        <div class="font-mono" style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;">— Flagship Program</div>
+        <h2 class="font-display" style="font-size:clamp(56px, 8vw, 88px);font-weight:900;text-transform:uppercase;line-height:0.9;letter-spacing:-0.025em;margin-bottom:24px;">The UR<br/>Initiative.</h2>
+        <p id="ur-tagline" style="font-size:17px;line-height:1.55;color:rgba(15,15,16,0.7);"></p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <img src="assets/community-1.jpg" alt="" style="width:100%;aspect-ratio:4/5;object-fit:cover;" />
+        <img src="assets/community-2.jpg" alt="" style="width:100%;aspect-ratio:4/5;object-fit:cover;" />
+      </div>
+    </div>
+    <div id="ur-points" style="display:grid;grid-template-columns:repeat(4, 1fr);border:1px solid var(--line);"></div>
+  </section>
+
+  <!-- Youth -->
+  <section style="background:var(--ink);color:#fff;padding:120px 48px;">
+    <div style="max-width:1440px;margin:0 auto;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:40px;flex-wrap:wrap;">
+        <div>
+          <div class="font-mono" style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue-light);margin-bottom:20px;">— Youth Pipeline</div>
+          <h2 class="font-display" style="font-size:clamp(56px, 8vw, 88px);font-weight:900;text-transform:uppercase;line-height:0.9;letter-spacing:-0.025em;margin-bottom:16px;">The future<br/>is bright.</h2>
+          <div id="youth-academy" class="font-display" style="font-size:22px;font-weight:700;color:var(--blue-light);margin-bottom:6px;"></div>
+          <p id="youth-tagline" style="font-size:15px;color:rgba(255,255,255,0.65);max-width:620px;"></p>
+        </div>
+        <a class="btn" href="#" style="background:var(--blue);color:#fff;">Join the Academy →</a>
+      </div>
+      <div id="youth-pillars" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:1px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.12);"></div>
+    </div>
+  </section>
+
+  <!-- Indigenous ID -->
+  <section style="padding:120px 48px;max-width:1440px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:80px;align-items:center;">
+      <div>
+        <div class="font-mono" style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;">— Indigenous Identification</div>
+        <h2 class="font-display" style="font-size:clamp(56px, 8vw, 88px);font-weight:900;text-transform:uppercase;line-height:0.9;letter-spacing:-0.025em;margin-bottom:28px;">Native ground.<br/>Native game.</h2>
+        <p id="indig-body" style="font-size:18px;line-height:1.55;color:rgba(15,15,16,0.75);margin-bottom:22px;"></p>
+        <div style="display:flex;gap:16px;margin-top:32px;flex-wrap:wrap;">
+          <a class="btn btn-dark" href="#">Learn More →</a>
+          <a class="btn btn-ghost" href="#">Tribal Partners →</a>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div style="position:absolute;top:-16px;right:-16px;padding:10px 16px;background:var(--blue);color:#fff;z-index:2;">
+          <div class="font-mono" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;">39 Tribal Nations</div>
+        </div>
+        <img src="assets/community-3.jpg" alt="" style="width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--line);" />
+      </div>
+    </div>
+  </section>
+
+  <div data-footer></div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/site.js"></script>
+<script>
+  (function () {
+    var C = window.OUFC_DATA.community;
+
+    // Stats
+    document.getElementById("stats-strip").innerHTML = C.stats.map(function (s, i) {
+      var pl = i > 0 ? 32 : 0;
+      var br = i < 3 ? "1px solid var(--line)" : "none";
+      return '<div style="padding:56px 32px 56px ' + pl + 'px;border-right:' + br + ';">' +
+        '<div class="font-display" style="font-size:72px;font-weight:900;color:var(--blue);line-height:0.95;letter-spacing:-0.02em;margin-bottom:12px;">' + s.v + '</div>' +
+        '<div class="font-mono" style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(15,15,16,0.6);line-height:1.4;">' + s.l + '</div>' +
+      '</div>';
+    }).join("");
+
+    // UR
+    document.getElementById("ur-tagline").textContent = C.urInitiative.tagline;
+    document.getElementById("ur-points").innerHTML = C.urInitiative.points.map(function (p, i) {
+      var br = i < 3 ? "1px solid var(--line)" : "none";
+      return '<div style="padding:36px 28px 40px;border-right:' + br + ';background:var(--paper-2);">' +
+        '<div class="font-display" style="font-size:24px;font-weight:900;color:var(--blue);margin-bottom:16px;">0' + (i + 1) + '</div>' +
+        '<h3 class="font-display" style="font-size:20px;font-weight:800;text-transform:uppercase;letter-spacing:-0.005em;line-height:1.05;margin-bottom:12px;">' + p.h + '</h3>' +
+        '<p style="font-size:14px;line-height:1.55;color:rgba(15,15,16,0.7);">' + p.b + '</p>' +
+      '</div>';
+    }).join("");
+
+    // Youth
+    document.getElementById("youth-academy").textContent = C.youth.academy;
+    document.getElementById("youth-tagline").textContent = C.youth.tagline;
+    document.getElementById("youth-pillars").innerHTML = C.youth.pillars.map(function (p, i) {
+      return '<div style="background:var(--ink);padding:40px 32px 44px;">' +
+        '<div class="font-display" style="font-size:56px;font-weight:900;color:var(--blue-light);line-height:1;margin-bottom:20px;letter-spacing:-0.02em;">0' + (i + 1) + '</div>' +
+        '<h3 class="font-display" style="font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:-0.005em;line-height:1.05;margin-bottom:14px;">' + p.h + '</h3>' +
+        '<p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,0.7);">' + p.b + '</p>' +
+      '</div>';
+    }).join("");
+
+    // Indigenous
+    document.getElementById("indig-body").textContent = C.indigenousId.body;
+  })();
+</script>
+</body>
+</html>
