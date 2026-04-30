@@ -35,9 +35,6 @@ window.OUFC_DATA = {
     { name: "Zain Ahmed", role: "Executive Vice President · Partner" },
     { name: "Alex Zonneveld", role: "General Manager" },
     { name: "Blair Sutter", role: "Team Attorney" },
-    { name: "Devin Williams", role: "Sports Data Analytics Director" },
-    { name: "Travis Komancheet", role: "Co-Director, Merch & Apparel" },
-    { name: "Kristy Komancheet", role: "Co-Director, Merch & Apparel" },
   ],
   community: {
     stats: [
