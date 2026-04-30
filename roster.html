@@ -118,8 +118,9 @@
     color: #fff;
     cursor: pointer;
     transition: border-color 0.15s ease, filter 0.15s ease;
-    /* Counter-rotate so the card stands upright against the tilted pitch */
-    transform: rotateX(-42deg) translateZ(2px);
+    /* Over-counter-rotate the pitch's 42° tilt by ~13° so the top of each
+       card leans forward toward the viewer — like standees looking up at you. */
+    transform: rotateX(-55deg) translateZ(2px);
     transform-origin: center bottom;
     /* drop-shadow respects 3D transforms; gives a "standee" shadow */
     filter: drop-shadow(0 10px 8px rgba(0,0,0,0.7));
@@ -191,7 +192,7 @@
       min-width: 64px;
       max-width: 90px;
       padding: 6px 6px;
-      transform: rotateX(-38deg);
+      transform: rotateX(-51deg);
     }
     .player-card-num { font-size: 16px; }
     .player-card-name { font-size: 11px; margin-top: 3px; }
