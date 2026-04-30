@@ -48,10 +48,10 @@
       var opp = '<span style="opacity:0.7;">' + escape(m.abbr) + '</span>';
       var matchup = m.home ? (oufc + '<span style="color:rgba(255,255,255,0.35);font-size:10px;">vs</span>' + opp)
                            : (opp + '<span style="color:rgba(255,255,255,0.35);font-size:10px;">vs</span>' + oufc);
-      return '<div style="flex:1;display:flex;align-items:center;gap:12px;padding:0 18px;border-right:' + border + ';min-width:200px;">' +
-        '<div class="font-mono" style="font-size:11px;color:rgba(255,255,255,0.5);">' + escape(m.date) + '</div>' +
-        '<div class="font-display" style="font-weight:700;font-size:13px;letter-spacing:0.04em;display:flex;align-items:center;gap:6px;">' + matchup + '</div>' +
-        '<div class="font-mono" style="font-size:11px;color:rgba(255,255,255,0.5);margin-left:auto;">' + escape(time) + '</div>' +
+      return '<div style="flex:1;display:flex;align-items:center;gap:12px;padding:0 18px;border-right:' + border + ';min-width:200px;white-space:nowrap;">' +
+        '<div class="font-mono" style="font-size:11px;color:rgba(255,255,255,0.5);white-space:nowrap;">' + escape(m.date) + '</div>' +
+        '<div class="font-display" style="font-weight:700;font-size:13px;letter-spacing:0.04em;display:flex;align-items:center;gap:6px;white-space:nowrap;">' + matchup + '</div>' +
+        '<div class="font-mono" style="font-size:11px;color:rgba(255,255,255,0.5);margin-left:auto;white-space:nowrap;">' + escape(time) + '</div>' +
       '</div>';
     }).join("");
 
