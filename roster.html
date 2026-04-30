@@ -59,13 +59,21 @@
     color: rgba(255,255,255,0.55);
   }
 
-  /* Stage provides the perspective; pitch tilts back inside it. */
+  /* Stage provides the perspective; pitch tilts back inside it.
+     Stage aspect-ratio matches the *visible* (post-tilt) height of the pitch
+     so there's no dead space above. The pitch itself is absolutely positioned
+     at the bottom so its dead top portion extends above the stage harmlessly. */
   .pitch-stage {
     perspective: 1100px;
     perspective-origin: 50% 0%;
+    position: relative;
+    /* visible aspect = pitch_aspect / cos(42deg) ≈ 7/9 / 0.743 → 7/6.7 */
+    aspect-ratio: 7 / 6.7;
   }
   .pitch {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
     aspect-ratio: 7 / 9;
     background:
@@ -175,6 +183,7 @@
   /* Mobile */
   @media (max-width: 600px) {
     .pitch-section { padding: 20px 14px 56px !important; }
+    .pitch-stage { aspect-ratio: 7 / 7.9; }
     .pitch { aspect-ratio: 7 / 10; transform: rotateX(38deg); }
     .pitch-rows { padding: 18px 6px; }
     .pitch-row { gap: 4px; }
