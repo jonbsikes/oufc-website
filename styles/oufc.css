@@ -216,6 +216,32 @@ a { color: inherit; }
 @media (max-width: 640px) {
   .hero-watermark { display: none; }
 }
+
+/* Schedule hero — paired OUFC crest + The League for Clubs marks on the right */
+.schedule-hero-marks {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  pointer-events: none;
+  z-index: 1;
+}
+.schedule-hero-marks img {
+  width: clamp(150px, 16vw, 230px);
+  height: auto;
+  opacity: 0.85;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.4));
+}
+@media (max-width: 900px) {
+  .schedule-hero-marks { right: 32px; gap: 22px; }
+  .schedule-hero-marks img { width: clamp(90px, 16vw, 140px); opacity: 0.7; }
+}
+@media (max-width: 600px) {
+  .schedule-hero-marks { display: none; }
+}
 @keyframes partner-marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
