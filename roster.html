@@ -20,62 +20,212 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,75..125,400..900;1,75..125,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles/oufc.css" />
+<style>
+  /* Roster pitch view */
+  .pitch-section {
+    background: var(--ink);
+    color: #fff;
+    padding: 32px 48px 64px;
+  }
+  .pitch-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .pitch-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .pitch-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+  }
+  .pitch-formation {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+  .pitch {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 7 / 10;
+    background:
+      radial-gradient(ellipse at center, rgba(32, 126, 213, 0.08) 0%, transparent 60%),
+      linear-gradient(180deg, #0a1628 0%, #051120 50%, #0a1628 100%);
+    border: 1px solid rgba(255,255,255,0.12);
+    overflow: hidden;
+  }
+  .pitch-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .pitch-rows {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    padding: 28px 16px;
+  }
+  .pitch-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 8px;
+  }
+  .player-card {
+    background: rgba(10, 22, 40, 0.92);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 10px 12px;
+    min-width: 96px;
+    max-width: 130px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .player-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--blue-light);
+  }
+  .player-card-num {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--blue-light);
+    letter-spacing: -0.02em;
+  }
+  .player-card-name {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-top: 6px;
+    color: #fff;
+  }
+  .player-card-pos {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+
+  /* Bench */
+  .bench {
+    margin-top: 32px;
+  }
+  .bench-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .bench-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .bench-row .player-card { background: rgba(255,255,255,0.04); }
+
+  /* Mobile: smaller cards so they fit on a phone-width pitch */
+  @media (max-width: 600px) {
+    .pitch-section { padding: 20px 14px 40px !important; }
+    .pitch-rows { padding: 18px 6px; }
+    .pitch-row { gap: 4px; }
+    .player-card {
+      min-width: 64px;
+      max-width: 90px;
+      padding: 6px 6px;
+    }
+    .player-card-num { font-size: 16px; }
+    .player-card-name { font-size: 11px; margin-top: 3px; }
+    .player-card-pos { font-size: 9px; margin-top: 2px; letter-spacing: 0.12em; }
+  }
+</style>
 </head>
 <body>
 <div class="page">
   <div data-nav data-active="Roster"></div>
 
-  <section style="background:var(--ink);color:#fff;padding:72px 48px;">
-    <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr;align-items:flex-end;gap:40px;">
-      <div>
-        <div class="font-mono" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue-light);margin-bottom:18px;">— First Team</div>
-        <h1 class="font-display" style="font-size:clamp(72px, 10vw, 120px);font-weight:900;line-height:0.9;text-transform:uppercase;letter-spacing:-0.02em;">The XI</h1>
+  <section class="pitch-section">
+    <div class="pitch-wrap">
+      <div class="pitch-header">
+        <div class="pitch-eyebrow">— First Team · Inaugural 2026 · Roster TBD</div>
+        <div class="pitch-formation">4 — 3 — 3</div>
       </div>
-      <div class="font-mono" style="font-size:12px;line-height:1.6;color:rgba(255,255,255,0.6);letter-spacing:0.04em;">
-        Roster TBD · Inaugural 2026 season<br/>The League FC · Red River Conference
+
+      <div class="pitch" role="img" aria-label="Starting XI on the pitch">
+        <svg class="pitch-lines" viewBox="0 0 100 140" preserveAspectRatio="none" aria-hidden="true">
+          <rect x="1" y="1" width="98" height="138" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="0.4"/>
+          <line x1="1" y1="70" x2="99" y2="70" stroke="rgba(255,255,255,0.16)" stroke-width="0.4"/>
+          <circle cx="50" cy="70" r="9" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="0.4"/>
+          <circle cx="50" cy="70" r="0.6" fill="rgba(255,255,255,0.32)"/>
+          <rect x="30" y="1" width="40" height="13" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="0.4"/>
+          <rect x="30" y="126" width="40" height="13" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="0.4"/>
+          <rect x="40" y="1" width="20" height="5" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="0.4"/>
+          <rect x="40" y="134" width="20" height="5" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="0.4"/>
+        </svg>
+
+        <div class="pitch-rows">
+          <!-- Forwards (top of pitch) -->
+          <div class="pitch-row">
+            <div class="player-card"><div class="player-card-num">11</div><div class="player-card-name">TBD</div><div class="player-card-pos">LW</div></div>
+            <div class="player-card"><div class="player-card-num">09</div><div class="player-card-name">TBD</div><div class="player-card-pos">ST</div></div>
+            <div class="player-card"><div class="player-card-num">10</div><div class="player-card-name">TBD</div><div class="player-card-pos">RW</div></div>
+          </div>
+          <!-- Midfielders -->
+          <div class="pitch-row">
+            <div class="player-card"><div class="player-card-num">06</div><div class="player-card-name">TBD</div><div class="player-card-pos">LCM</div></div>
+            <div class="player-card"><div class="player-card-num">08</div><div class="player-card-name">TBD</div><div class="player-card-pos">CM</div></div>
+            <div class="player-card"><div class="player-card-num">17</div><div class="player-card-name">TBD</div><div class="player-card-pos">RCM</div></div>
+          </div>
+          <!-- Defenders -->
+          <div class="pitch-row">
+            <div class="player-card"><div class="player-card-num">02</div><div class="player-card-name">TBD</div><div class="player-card-pos">LB</div></div>
+            <div class="player-card"><div class="player-card-num">04</div><div class="player-card-name">TBD</div><div class="player-card-pos">LCB</div></div>
+            <div class="player-card"><div class="player-card-num">05</div><div class="player-card-name">TBD</div><div class="player-card-pos">RCB</div></div>
+            <div class="player-card"><div class="player-card-num">14</div><div class="player-card-name">TBD</div><div class="player-card-pos">RB</div></div>
+          </div>
+          <!-- Goalkeeper (bottom of pitch) -->
+          <div class="pitch-row">
+            <div class="player-card"><div class="player-card-num">01</div><div class="player-card-name">TBD</div><div class="player-card-pos">GK</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bench">
+        <div class="bench-eyebrow">— Bench · Subs TBD</div>
+        <div class="bench-row">
+          <div class="player-card"><div class="player-card-num">21</div><div class="player-card-name">TBD</div><div class="player-card-pos">GK</div></div>
+          <div class="player-card"><div class="player-card-num">23</div><div class="player-card-name">TBD</div><div class="player-card-pos">MID</div></div>
+        </div>
       </div>
     </div>
   </section>
-
-  <div id="roster-groups"></div>
 
   <div data-footer></div>
 </div>
 
 <script src="js/data.js"></script>
 <script src="js/site.js"></script>
-<script>
-  (function () {
-    var groups = ["Goalkeeper", "Defender", "Midfielder", "Forward"];
-    var make = function (n, pos) { return { n: n, name: "TBD", pos: pos }; };
-    var players = [
-      make("01", "Goalkeeper"), make("21", "Goalkeeper"),
-      make("02", "Defender"), make("04", "Defender"), make("05", "Defender"), make("14", "Defender"),
-      make("06", "Midfielder"), make("08", "Midfielder"), make("17", "Midfielder"), make("23", "Midfielder"),
-      make("09", "Forward"), make("10", "Forward"), make("11", "Forward"),
-    ];
-    var host = document.getElementById("roster-groups");
-    host.innerHTML = groups.map(function (g, gi) {
-      var cards = players.filter(function (p) { return p.pos === g; }).map(function (p) {
-        return '<div style="background:var(--paper-2);aspect-ratio:3/4;position:relative;overflow:hidden;cursor:pointer;">' +
-            '<div class="ph ph-light" style="position:absolute;inset:0;">TBD</div>' +
-            '<div class="font-display" style="position:absolute;left:16px;top:12px;font-size:80px;font-weight:900;line-height:1;color:var(--blue);opacity:0.95;">' + p.n + '</div>' +
-            '<div style="position:absolute;left:16px;right:16px;bottom:16px;">' +
-              '<div class="font-display" style="font-size:20px;font-weight:800;text-transform:uppercase;letter-spacing:-0.005em;color:var(--ink);">' + p.name + '</div>' +
-              '<div class="font-mono" style="font-size:10px;letter-spacing:0.14em;color:rgba(15,15,16,0.55);margin-top:4px;">To be announced</div>' +
-            '</div>' +
-          '</div>';
-      }).join("");
-      return '<section style="padding:64px 48px;border-bottom:1px solid var(--line);">' +
-        '<div style="max-width:1440px;margin:0 auto;">' +
-          '<h2 class="font-display" style="font-size:32px;font-weight:800;text-transform:uppercase;letter-spacing:-0.005em;margin-bottom:32px;color:var(--blue);">' +
-            '<span style="color:rgba(15,15,16,0.25);margin-right:14px;">' + String(gi + 1).padStart(2, "0") + '</span>' + g + 's' +
-          '</h2>' +
-          '<div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:18px;">' + cards + '</div>' +
-        '</div>' +
-      '</section>';
-    }).join("");
-  })();
-</script>
 </body>
 </html>
