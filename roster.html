@@ -67,15 +67,15 @@
     perspective: 1600px;
     perspective-origin: 50% 0%;
     position: relative;
-    /* visible aspect = pitch_aspect / cos(60deg) = 7/9 / 0.5 → 7/4.5 */
-    aspect-ratio: 7 / 4.5;
+    /* visible aspect = pitch_aspect / cos(60deg) = 7/10.5 / 0.5 → 7/5.25 */
+    aspect-ratio: 7 / 5.25;
   }
   .pitch {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    aspect-ratio: 7 / 9;
+    aspect-ratio: 7 / 10.5;
     background:
       radial-gradient(ellipse at center, rgba(32, 126, 213, 0.10) 0%, transparent 65%),
       linear-gradient(180deg, #0a1628 0%, #051120 50%, #0a1628 100%);
@@ -180,8 +180,8 @@
   /* Mobile */
   @media (max-width: 600px) {
     .pitch-section { padding: 20px 14px 56px !important; }
-    .pitch-stage { aspect-ratio: 7 / 5; }
-    .pitch { aspect-ratio: 7 / 10; transform: rotateX(60deg); }
+    .pitch-stage { aspect-ratio: 7 / 6; }
+    .pitch { aspect-ratio: 7 / 12; transform: rotateX(60deg); }
     .pitch-rows { padding: 10px 6px; }
     .pitch-row { gap: 4px; }
     .player-card {
