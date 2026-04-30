@@ -84,13 +84,17 @@
     var html = D.schedule.map(function (m, i) {
       var bg = i % 2 ? "transparent" : "rgba(15,15,16,0.02)";
       var border = i < D.schedule.length - 1 ? "1px solid var(--line)" : "none";
-      var oufcImg = '<img src="assets/logo-club.png" alt="OUFC" style="width:38px;height:38px;object-fit:contain;" />';
-      var oufcLabel = '<div class="font-display" style="font-size:18px;font-weight:800;color:var(--blue);">OUFC</div>';
-      var oppImg = '<img src="' + m.logo + '" alt="' + m.opp + '" style="width:38px;height:38px;object-fit:contain;" />';
-      var oppLabel = '<div class="font-display" style="font-size:18px;font-weight:700;color:var(--ink);">' + m.opp + '</div>';
-      var vs = '<div class="font-mono" style="font-size:11px;color:rgba(15,15,16,0.4);margin:0 4px;">vs</div>';
-      var matchup = m.home ? (oufcImg + oufcLabel + vs + oppImg + oppLabel) : (oppImg + oppLabel + vs + oufcImg + oufcLabel);
-      var noteHTML = m.note ? '<div class="font-mono" style="font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue);margin-left:auto;padding:4px 8px;border:1px solid var(--blue);">' + m.note + '</div>' : '';
+      var oufcGroup = '<div style="display:inline-flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0;">' +
+        '<img src="assets/logo-club.png" alt="OUFC" style="width:38px;height:38px;object-fit:contain;" />' +
+        '<span class="font-display" style="font-size:18px;font-weight:800;color:var(--blue);">OUFC</span>' +
+      '</div>';
+      var oppGroup = '<div style="display:inline-flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0;">' +
+        '<img src="' + m.logo + '" alt="' + m.opp + '" style="width:38px;height:38px;object-fit:contain;" />' +
+        '<span class="font-display" style="font-size:18px;font-weight:700;color:var(--ink);">' + m.opp + '</span>' +
+      '</div>';
+      var vs = '<span class="font-mono" style="font-size:11px;color:rgba(15,15,16,0.4);margin:0 4px;flex-shrink:0;">vs</span>';
+      var matchup = m.home ? (oufcGroup + vs + oppGroup) : (oppGroup + vs + oufcGroup);
+      var noteHTML = m.note ? '<span class="font-mono" style="font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue);margin-left:auto;padding:4px 8px;border:1px solid var(--blue);white-space:nowrap;flex-shrink:0;">' + m.note + '</span>' : '';
       var ctaHTML = m.home
         ? '<a class="btn btn-primary" href="' + D.ticketsUrl + '" target="_blank" rel="noopener" style="padding:10px 16px;font-size:11px;">Tickets</a>'
         : '<a class="btn btn-ghost" href="#" style="padding:10px 16px;font-size:11px;">Away</a>';
@@ -99,7 +103,7 @@
             '<div class="font-display" style="font-size:22px;font-weight:800;letter-spacing:-0.005em;">' + m.date + '</div>' +
             '<div class="font-mono" style="font-size:10px;color:rgba(15,15,16,0.5);letter-spacing:0.14em;margin-top:2px;">' + m.day + '</div>' +
           '</div>' +
-          '<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">' + matchup + noteHTML + '</div>' +
+          '<div style="display:flex;align-items:center;gap:16px;flex-wrap:nowrap;min-width:0;">' + matchup + noteHTML + '</div>' +
           '<div class="font-mono" style="font-size:10px;color:rgba(15,15,16,0.6);letter-spacing:0.12em;text-transform:uppercase;">' + m.venue + '</div>' +
           '<div style="text-align:right;">' + ctaHTML + '</div>' +
         '</div>';
