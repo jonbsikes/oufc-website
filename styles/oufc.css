@@ -319,8 +319,8 @@ a { color: inherit; }
   section[style*="padding:72px"]  { padding-top: 48px !important; padding-bottom: 48px !important; }
 
   /* Hero on home — shrink min-height + inner padding */
-  section[style*="min-height:820px"] { min-height: 560px !important; }
-  div[style*="padding:60px 48px 0"] { padding: 36px 20px 0 !important; min-height: 560px !important; }
+  section[style*="min-height:700px"] { min-height: 520px !important; }
+  div[style*="padding:60px 48px 0"] { padding: 36px 20px 0 !important; min-height: 520px !important; }
 
   /* Ticker: scroll horizontally instead of clipping */
   [style*="display:flex;flex:1;overflow:hidden"] {
